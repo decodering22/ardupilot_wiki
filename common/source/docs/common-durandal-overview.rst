@@ -571,11 +571,11 @@ Spektrum satellite receivers.
 PWM Output
 ==========
 
-The Durandal supports up to 16 PWM outputs. First first 8 outputs (labelled
+The Durandal supports up to 13 PWM outputs. First first 8 outputs (labelled
 "MAIN") are controlled by a dedicated STM32F100 IO controller. These 8
 outputs support all PWM output formats, but not DShot.
 
-The remaining 8 outputs (labelled AUX1 to AUX8) are the "auxiliary"
+The remaining 5 outputs (labelled AUX1 to AUX5) are the "auxiliary"
 outputs. These are directly attached to the STM32H743 and support all
 PWM protocols as well as DShot.
 
@@ -588,11 +588,9 @@ The 8 main PWM outputs are in 3 groups:
  - PWM 3 and 4 in group2
  - PWM 5, 6, 7 and 8 in group3
 
-The 8 auxiliary PWM outputs are in 2 groups:
+The 5 auxiliary PWM outputs are in 2 groups:
 
- - PWM 1, 2, 3 and 4 in group4
- - PWM 5 and 6 in group5
- - PWM 7 and 8 in group6 (no DMA, no DShot)
+ - PWM 1, 2, 3, 4 and 5 in group4
 
 Channels within the same group need to use the same output rate. If
 any channel in a group uses DShot then all channels in the group need
@@ -613,7 +611,7 @@ The Durandal has one builtin IST8310 compass.
 GPIOs
 =====
 
-The 8 AUX PWM ports can be used as GPIOs (relays, buttons, RPM etc). To
+The 5 AUX PWM ports can be used as GPIOs (relays, buttons, RPM etc). To
 use them you need to limit the number of these pins that is used for
 PWM by setting the ``BRD_PWM_COUNT`` to a number less than 8. For example
 if you set it to 6 then PWM7 and PWM8 will be available for
